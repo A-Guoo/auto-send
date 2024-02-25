@@ -29,7 +29,7 @@ async function main() {
   console.log("Start");
   while (1) {
     const xueqiuRes = await XueQiu.requestData();
-    handleData(xueqiuRes.slice(0, 1));
+    handleData(xueqiuRes);
     const thsRes = await THS.requestData();
     handleData(thsRes);
     const dfcfRes = await DFCF.requestData();
@@ -37,6 +37,7 @@ async function main() {
     // const ycjRes = await YCJ.requestData();
     // handleData(ycjRes);
     console.log("hadRequest\n");
+    isFirst = false;
     await sleep(2000);
   }
   console.log("End");
