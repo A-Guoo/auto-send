@@ -34,7 +34,7 @@ export async function sendMsgToFeishu(data: BaseItem) {
       text += `***${data.title}***\n`;
     }
     text += `${data.content}\n`;
-    // console.log(text);
+    console.log(text);
     // return;
     let content: any[] = [
       {
