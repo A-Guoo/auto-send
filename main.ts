@@ -3,7 +3,7 @@ import { ThsCannel } from "./channels/ths";
 import { XueqiuCannel } from "./channels/xueqiu";
 import { YcjCannel } from "./channels/ycj";
 import { BaseItem } from "./types";
-import { sendMsgToFeishu, sleep } from "./utils";
+import { getText, sendMsgToFeishu, sleep } from "./utils";
 
 let hashList: string[] = [];
 let isFirst = true;
@@ -19,6 +19,7 @@ async function handleData(data: BaseItem[]) {
     } else {
       hashList.push(data[i].hash);
       if (!isFirst) await sendMsgToFeishu(data[i]);
+      console.log(getText(data[i]));
     }
   }
 }

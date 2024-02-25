@@ -27,15 +27,17 @@ export function formatTime(timestamp: number) {
   return dateString;
 }
 
+export function getText(data: BaseItem) {
+  let text = `${data.timeStr}--${data.cannel}\n`;
+  if (!!data?.title) {
+    text += `***${data.title}***\n`;
+  }
+  text += `${data.content}\n`;
+  return text;
+}
 export async function sendMsgToFeishu(data: BaseItem) {
   try {
-    let text = `${data.timeStr}--${data.cannel}\n`;
-    if (!!data?.title) {
-      text += `***${data.title}***\n`;
-    }
-    text += `${data.content}\n`;
-    console.log(text);
-    // return;
+    const text = getText(data);
     let content: any[] = [
       {
         tag: "text",
