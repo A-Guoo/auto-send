@@ -17,6 +17,7 @@ export class XueqiuCannel {
           Cookie: this.cookie,
         },
       });
+      if (!data?.items?.length) throw new Error("data empty");
       return (
         data?.items?.map((item: any) => {
           return {

@@ -17,6 +17,7 @@ export class DfcfCannel {
           Cookie: this.cookie,
         },
       });
+      if (!data?.data?.fastNewsList?.length) throw new Error("data empty");
       return (
         data?.data?.fastNewsList?.map((item: any) => {
           return {

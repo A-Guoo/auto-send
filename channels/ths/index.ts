@@ -16,6 +16,7 @@ export class ThsCannel {
           Cookie: this.cookie,
         },
       });
+      if (!data?.data?.list?.length) throw new Error("data empty");
       return (
         data?.data?.list?.map((item: any) => {
           return {
