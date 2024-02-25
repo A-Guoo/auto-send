@@ -74,8 +74,9 @@ export async function sendMsgToFeishu(data: BaseItem) {
   }
 }
 
-export function isOnTheHour() {
+export function isZero() {
+  const hour = dayjs().hour();
   const minute = dayjs().minute();
 
-  return minute === 0;
+  return hour === 0 && minute === 0;
 }

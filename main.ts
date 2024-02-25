@@ -5,7 +5,7 @@ import { ThsCannel } from "./channels/ths";
 import { XueqiuCannel } from "./channels/xueqiu";
 import { YcjCannel } from "./channels/ycj";
 import { BaseItem } from "./types";
-import { getText, sendMsgToFeishu, sleep } from "./utils";
+import { getText, isZero, sendMsgToFeishu, sleep } from "./utils";
 
 let hashList: string[] = [];
 let isFirst = true;
@@ -29,10 +29,15 @@ async function handleData(data: BaseItem[]) {
 }
 function resetHashList() {
   hashList = [];
+  isFirst = true;
 }
 async function main() {
   console.log("Start");
   while (1) {
+    if (isZero()) {
+      resetHashList();
+      continue;
+    }
     const xueqiuRes = await XueQiu.requestData();
     handleData(xueqiuRes);
     const thsRes = await THS.requestData();
