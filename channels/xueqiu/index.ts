@@ -2,6 +2,17 @@ import { BaseItem } from "../../types";
 import axios from "axios";
 import { formatTime, getHash } from "../../utils";
 
+function getText(text: string) {
+  const regex = /【(.*?)】/;
+  const match = text.match(regex);
+
+  if (match && match[1]) {
+    return match?.[1] || text.slice(0, 20);
+  } else {
+    console.log("未匹配到内容");
+    return text.slice(0, 20);
+  }
+}
 export class XueqiuCannel {
   dataUrl =
     "https://xueqiu.com/statuses/livenews/list.json?since_id=-1&max_id=-1&count=10";
@@ -22,7 +33,7 @@ export class XueqiuCannel {
         data?.items?.map((item: any) => {
           return {
             cannel: "雪球",
-            hash: getHash(item?.text?.slice(0, 20) || ""),
+            hash: getHash(getText(item?.text) || ""),
             timeStr: formatTime(item?.created_at || 0),
             title: "",
             content: item?.text || "",
