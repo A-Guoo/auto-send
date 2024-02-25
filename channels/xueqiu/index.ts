@@ -9,7 +9,6 @@ function getText(text: string) {
   if (match && match[1]) {
     return match?.[1] || text.slice(0, 20);
   } else {
-    console.log("未匹配到内容");
     return text.slice(0, 20);
   }
 }
