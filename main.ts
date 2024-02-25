@@ -1,4 +1,6 @@
 import { DfcfCannel } from "./channels/dfcf";
+import { DycjCannel } from "./channels/dycj";
+import { FtnnCannel } from "./channels/ftnn";
 import { ThsCannel } from "./channels/ths";
 import { XueqiuCannel } from "./channels/xueqiu";
 import { YcjCannel } from "./channels/ycj";
@@ -11,6 +13,8 @@ const XueQiu = new XueqiuCannel();
 const THS = new ThsCannel();
 const DFCF = new DfcfCannel();
 const YCJ = new YcjCannel();
+const DYCJ = new DycjCannel();
+const FTNN = new FtnnCannel();
 
 async function handleData(data: BaseItem[]) {
   for (let i = 0; i < data.length; i++) {
@@ -37,6 +41,10 @@ async function main() {
     handleData(dfcfRes);
     // const ycjRes = await YCJ.requestData();
     // handleData(ycjRes);
+    const dycjRes = await DYCJ.requestData();
+    handleData(dycjRes);
+    const ftnnRes = await FTNN.requestData();
+    handleData(ftnnRes);
     console.log("hadRequest\n");
     isFirst = false;
     await sleep(2000);
