@@ -52,8 +52,8 @@ export async function sendMsgToFeishu(data: BaseItem) {
       });
     }
     await axios.post(
-      "https://open.feishu.cn/open-apis/bot/v2/hook/556b7a53-a168-45d8-be31-75f1352ce9f7",
-      {
+     "https://open.feishu.cn/open-apis/bot/v2/hook/4e5cc62a-7751-4f55-8f3c-c6212dae26a3",
+       {
         msg_type: "post",
         content: {
           post: {
