@@ -52,7 +52,7 @@ export async function sendMsgToFeishu(data: BaseItem) {
       });
     }
     await axios.post(
-      "https://open.feishu.cn/open-apis/bot/v2/hook/c2fc49e5-c069-4c13-ac52-3aa895bcb5c6",
+      "https://open.feishu.cn/open-apis/bot/v2/hook/556b7a53-a168-45d8-be31-75f1352ce9f7",
       {
         msg_type: "post",
         content: {
@@ -79,4 +79,12 @@ export function isZero() {
   const minute = dayjs().minute();
 
   return hour === 0 && minute === 0;
+}
+
+export function isTraderTime() {
+  const currentTime = dayjs();
+  const startTime = dayjs().hour(9).minute(15).second(0);
+  const endTime = dayjs().hour(15).minute(0).second(0);
+
+  return currentTime.isAfter(startTime) && currentTime.isBefore(endTime);
 }

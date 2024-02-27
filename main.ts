@@ -5,7 +5,7 @@ import { ThsCannel } from "./channels/ths";
 import { XueqiuCannel } from "./channels/xueqiu";
 import { YcjCannel } from "./channels/ycj";
 import { BaseItem } from "./types";
-import { getText, isZero, sendMsgToFeishu, sleep } from "./utils";
+import { getText, isTraderTime, isZero, sendMsgToFeishu, sleep } from "./utils";
 
 let hashList: string[] = [];
 let isFirst = true;
@@ -52,7 +52,11 @@ async function main() {
     handleData(ftnnRes);
     console.log("hadRequest\n");
     isFirst = false;
-    await sleep(2000);
+    if (isTraderTime()) {
+      await sleep(2000);
+    } else {
+      await sleep(10000);
+    }
   }
   console.log("End");
 }
