@@ -2,8 +2,8 @@ import { DfcfCannel } from "./channels/dfcf";
 import { DycjCannel } from "./channels/dycj";
 import { FtnnCannel } from "./channels/ftnn";
 import { ThsCannel } from "./channels/ths";
-import { XueqiuCannel } from "./channels/xueqiu";
-import { YcjCannel } from "./channels/ycj";
+// import { XueqiuCannel } from "./channels/xueqiu";
+// import { YcjCannel } from "./channels/ycj";
 import { BaseItem } from "./types";
 import { getText, isTraderTime, isZero, sendMsgToFeishu, sleep } from "./utils";
 
@@ -12,7 +12,7 @@ let isFirst = true;
 // const XueQiu = new XueqiuCannel();
 const THS = new ThsCannel();
 const DFCF = new DfcfCannel();
-const YCJ = new YcjCannel();
+// const YCJ = new YcjCannel();
 const DYCJ = new DycjCannel();
 const FTNN = new FtnnCannel();
 
