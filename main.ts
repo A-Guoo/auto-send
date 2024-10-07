@@ -9,7 +9,7 @@ import { getText, isTraderTime, isZero, sendMsgToFeishu, sleep } from "./utils";
 
 let hashList: string[] = [];
 let isFirst = true;
-const XueQiu = new XueqiuCannel();
+// const XueQiu = new XueqiuCannel();
 const THS = new ThsCannel();
 const DFCF = new DfcfCannel();
 const YCJ = new YcjCannel();
@@ -38,8 +38,8 @@ async function main() {
       resetHashList();
       continue;
     }
-    const xueqiuRes = await XueQiu.requestData();
-    handleData(xueqiuRes);
+    // const xueqiuRes = await XueQiu.requestData();
+    // handleData(xueqiuRes);
     const thsRes = await THS.requestData();
     handleData(thsRes);
     const dfcfRes = await DFCF.requestData();
